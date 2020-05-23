@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
-from flask import Flask, redirect, abort
+from os import environ
+from flask import Flask, redirect, abort, render_template, request
 import MySQLdb
 
-db = MySQLdb.connect(user='go', passwd="the go password",db="go", host='127.0.0.1')
+db = MySQLdb.connect(user=environ['DB_USER'], passwd=environ['DB_PASS'],
+	db=environ['DB_NAME'], host=environ['DB_HOST'], autocommit=True)
 app = Flask(__name__)
 
 @app.route('/<path:path>')
