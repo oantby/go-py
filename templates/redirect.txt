@@ -1,0 +1,8 @@
+Status: 302 Found
+Location: { loc }
+Content-Type: text/html
+
+The page you requested can be found at
+<a href="{ loc|e }" target="_self">
+	{loc|e}
+</a>
